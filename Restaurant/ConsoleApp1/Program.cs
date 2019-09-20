@@ -31,6 +31,9 @@ namespace ConsoleApp1
 
             }
 
+            var w = new Waiter("some waiter name");
+            Console.WriteLine(w.waiterId);
+
 
 
 

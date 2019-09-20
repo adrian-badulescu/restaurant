@@ -8,7 +8,7 @@ namespace ConsoleApp1
     public enum tableState
     {
         occupied = 1,
-        free = 2
+        free = 2  
     }
     public class Table
     {
@@ -29,7 +29,11 @@ namespace ConsoleApp1
             {
                 if (this.takenSeats > 0)
                 {
+
+                    
                     return tableState.occupied;
+                    
+
                 }
                 else
                 {
