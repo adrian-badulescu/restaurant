@@ -34,7 +34,10 @@ namespace ConsoleApp1
             var w = new Waiter("some waiter name");
             Console.WriteLine(w.waiterId);
 
+            w.totalWaitersOfRestaurant = 10;
+            w.absentwaiters = 2;
 
+            Console.WriteLine("% presence" + w.presenceAtWork());
 
 
         }
