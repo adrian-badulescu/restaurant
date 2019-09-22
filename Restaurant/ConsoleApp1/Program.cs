@@ -1,4 +1,9 @@
-﻿using System;
+﻿using System.Collections.Generic;
+using System.Linq;
+using System;
+using System.Text;
+
+
 
 namespace ConsoleApp1
 {
@@ -31,7 +36,7 @@ namespace ConsoleApp1
 
             }
 
-            var w = new Waiter("some waiter name");
+            var w = new Waiter(1);
             Console.WriteLine(w.waiterId);
 
             w.totalWaitersOfRestaurant = 10;

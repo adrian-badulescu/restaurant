@@ -40,6 +40,8 @@ namespace ConsoleApp1
 
         }
 
+
+
         //tablestate()
         //{ // (1.b.)
         //    this.tables.map((table) => {
