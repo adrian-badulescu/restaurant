@@ -7,68 +7,90 @@ using System.Text;
 
 namespace ConsoleApp1 {
 public class Waiter
-{
+    {
         public enum waiterState
         {
             available = 1,
-            absent = 2
+            absent = 2,
+            notset = 3
         }
+        public string waiterId { get; private set; }
+        public double totalWaitersOfRestaurant { get; set; }
+        public double absentwaiters { get; set; }
+
+
+        //public string status { get; private set; } = "";
+        //public int stateVal { get; private set; }
+
 
         public waiterState WaiterState()
         {
-            /// this is set all the time to true as I didn't find yet a conditional criteria to set the state
-            {
 
-                {
-                    return waiterState.available;
-                }
+            
+            if ( setWaiterAvailability == "P")
+            {
+                return waiterState.available;
+            }
+            else if ( setWaiterAvailability == "A")
+            {
+                return waiterState.absent;
+            }
+            else
+            {
+                return waiterState.notset;
             }
         }
 
-        public int totalWaitersOfRestaurant { get; set; }
+     
 
-        public int absentwaiters { get; set; }
 
-        public int presenceAtWork()
+
+
+
+
+        public double presenceAtWork()
         {
-            var presence = (absentwaiters * 100) / totalWaitersOfRestaurant;
+            double presence = absentwaiters  / totalWaitersOfRestaurant * 100;
             return presence;
         }
 
 
 
-        public Dictionary<int, waiterState> WaitersState()
+        public Dictionary<string, waiterState> WaitersState()
         {
             var waiterWithState = this.waiters.Select(Waiter =>
             {
                 return new { id = Waiter.waiterId, state = Waiter.WaiterState() };
             });
-            var ret = new Dictionary<int, waiterState>();
+            var ret = new Dictionary<string, waiterState>();
             foreach (var w in waiterWithState)
             {
                 ret.Add(w.id, w.state);
             }
-              
+
             return ret;
 
         }
 
-        //public List<Table> assingedTables;
-
-        public int waiterId { get; private set; }
-        
-        public Waiter(int _waiterId)
-        {
-            this.waiterId = _waiterId; 
-            this.waiters = new List<Waiter>();
-                       
-        }
-
-        
+        public List<Table> assingedTables { get; set; }
         public List<Waiter> waiters { get; set; }
 
 
+        public Waiter(string _waiterId, string _setWaiterAvailability)
+        {
+            this.waiterId = _waiterId;
+            this.waiters = new List<Waiter>();
+            this.setWaiterAvailability = _setWaiterAvailability;
 
-        
+    }
+
+        public string setWaiterAvailability;
+
+
+
+
+
+
+
     }
 } 

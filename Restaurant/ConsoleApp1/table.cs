@@ -8,7 +8,7 @@ namespace ConsoleApp1
     public enum tableState
     {
         occupied = 1,
-        free = 2  
+        free = 2
     }
     public class Table
     {
@@ -19,6 +19,7 @@ namespace ConsoleApp1
 
         }
         public int tableId { get; private set; }
+        public double calc;
 
         /// <summary>
         /// if the table is free or not for other persons
@@ -30,9 +31,9 @@ namespace ConsoleApp1
                 if (this.takenSeats > 0)
                 {
 
-                    
+
                     return tableState.occupied;
-                    
+
 
                 }
                 else
@@ -57,12 +58,37 @@ namespace ConsoleApp1
 
 
 
-      
-        public int tableocupancy()
-        { // (1.d.)
-            var calc = (this.takenSeats * 100) / this.totalSeatsOfTable;
-            return calc;
-        }
 
+        public double Tableocupancy()
+        {
+            // this must be refactored as else if statement is not working
+            try
+            {
+                calc = Convert.ToDouble(takenSeats) / Convert.ToDouble(totalSeatsOfTable) * 100;
+                //return calc;
+            }
+            catch (Exception e)
+            {
+                if (e is DivideByZeroException)
+                {
+                    Console.WriteLine(e.Message);
+                    
+                }
+                else if (e is FormatException)
+                {
+                    Console.WriteLine(e.Message);
+                    
+                }
+                else
+                {
+                    throw;
+                }
+
+
+            }
+            return calc;
+
+
+        }
     }
 }

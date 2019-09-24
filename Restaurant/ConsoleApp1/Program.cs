@@ -11,17 +11,24 @@ namespace ConsoleApp1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-            //var x = Console.ReadLine();
-            //Console.WriteLine("am citit " + x);
 
-            var t = new Table(5);
+            Console.Write("Enter the taken table Id: ");
+            var t = new Table(Convert.ToInt32(Console.ReadLine()));
+            Console.Write("Enter how many seats have the table: ");
+            t.totalSeatsOfTable = Convert.ToInt32(Console.ReadLine());
+            Console.Write("Enter how many persons: ");
+            t.takenSeats = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("% ocupare" + t.Tableocupancy());
+
+
+
+
             //t.tableId = 9;
 
-            t.totalSeatsOfTable = 10;
-            t.takenSeats = 5;
-            
-            Console.WriteLine("% ocupare" + t.tableocupancy());
+
+
+
+
             Console.WriteLine(t.TableState());
 
             var r = new Room(1);
@@ -36,15 +43,28 @@ namespace ConsoleApp1
 
             }
 
-            var w = new Waiter(1);
-            Console.WriteLine(w.waiterId);
+
+
+            // 2nd arg of Waiter should be "P" - available ; "A" - absent from work
+            var w = new Waiter("John", "A");
+            Console.WriteLine(w.WaiterState());
 
             w.totalWaitersOfRestaurant = 10;
             w.absentwaiters = 2;
 
             Console.WriteLine("% presence" + w.presenceAtWork());
+            
+            w.setWaiterAvailability = Console.ReadLine();
+            
+            foreach (var ws in w.WaitersState())
+            {
+
+                
+                Console.WriteLine($"idtable={ws.Key} state={ws.Value}");
 
 
+            }
+            Console.ReadLine();
         }
     }
 }
