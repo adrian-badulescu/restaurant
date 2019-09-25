@@ -19,13 +19,11 @@ public class Waiter
         public double absentwaiters { get; set; }
         public string setWaiterAvailability { get; private set; }
 
-
+         
 
 
     public waiterState WaiterState()
-        {
-
-            
+        {                        
             if ( setWaiterAvailability == "P")
             {
                 return waiterState.available;
@@ -54,7 +52,7 @@ public class Waiter
         }
 
 
-
+        
         public Dictionary<string, waiterState> WaitersState()
         {
             var waiterWithState = this.waiters.Select(Waiter =>
@@ -66,9 +64,9 @@ public class Waiter
             {
                 ret.Add(w.id, w.state);
             }
-
+            //ret.ToList().ForEach(x => Console.WriteLine( x.Value));
             return ret;
-
+            
         }
 
         public List<Table> assingedTables { get; set; }
