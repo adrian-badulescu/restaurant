@@ -17,13 +17,12 @@ public class Waiter
         public string waiterId { get; private set; }
         public double totalWaitersOfRestaurant { get; set; }
         public double absentwaiters { get; set; }
+        public string setWaiterAvailability { get; private set; }
 
 
-        //public string status { get; private set; } = "";
-        //public int stateVal { get; private set; }
 
 
-        public waiterState WaiterState()
+    public waiterState WaiterState()
         {
 
             
@@ -82,14 +81,7 @@ public class Waiter
             this.waiters = new List<Waiter>();
             this.setWaiterAvailability = _setWaiterAvailability;
 
-    }
-
-        public string setWaiterAvailability;
-
-
-
-
-
+        }
 
 
     }

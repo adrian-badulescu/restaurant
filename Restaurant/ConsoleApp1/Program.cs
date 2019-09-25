@@ -46,21 +46,26 @@ namespace ConsoleApp1
 
 
             // 2nd arg of Waiter should be "P" - available ; "A" - absent from work
-            var w = new Waiter("John", "A");
+
+            Console.WriteLine("Please enter waiter's name and press Enter \nfollowed by 'P' if is working today or 'A if not an press Enter' : ");
+            var w = new Waiter(Console.ReadLine(), Console.ReadLine());
+            
             Console.WriteLine(w.WaiterState());
+
+
 
             w.totalWaitersOfRestaurant = 10;
             w.absentwaiters = 2;
 
             Console.WriteLine("% presence" + w.presenceAtWork());
+
             
-            w.setWaiterAvailability = Console.ReadLine();
-            
+
             foreach (var ws in w.WaitersState())
             {
 
                 
-                Console.WriteLine($"idtable={ws.Key} state={ws.Value}");
+                Console.WriteLine($"idWaiter= {ws.Key} state= {ws.Value}");
 
 
             }
