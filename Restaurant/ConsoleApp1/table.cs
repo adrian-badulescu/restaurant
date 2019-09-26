@@ -12,13 +12,13 @@ namespace ConsoleApp1
     }
     public class Table
     {
-        public Table(int _tableId)
+        public Table(string _tableId)
         {
 
             this.tableId = _tableId;
 
         }
-        public int tableId { get; private set; }
+        public string tableId { get; private set; }
         public double calc;
 
         /// <summary>

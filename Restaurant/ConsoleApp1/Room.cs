@@ -21,13 +21,13 @@ namespace ConsoleApp1
             this.roomId = id;
         }
 
-        public Dictionary<int, tableState> TablesState()
+        public Dictionary<string, tableState> TablesState()
         {
             var tableWithState=this.tables.Select(table =>
             {
                 return new { id = table.tableId, state = table.TableState() };
             });
-            var ret = new Dictionary<int, tableState>();
+            var ret = new Dictionary<string, tableState>();
             foreach(var t in tableWithState)
             {
                 ret.Add(t.id, t.state);
