@@ -17,6 +17,7 @@ namespace ConsoleApp1
             bool confirmed = false;
             //Table[] TablesArray = new Table[100];
             Table t;
+            Stock s = new Stock();
             List<Table> TablesLst = new List<Table>();
 
 
@@ -60,7 +61,7 @@ namespace ConsoleApp1
             foreach (var table in TablesLst)
             {               
                 Console.WriteLine("############################");
-                Console.WriteLine("Table: " + table.tableId);
+                Console.WriteLine("Table: " + table.tableId + " created on --> " + s.GetTimeStamp());
                 Console.WriteLine("############################");
             }
 
